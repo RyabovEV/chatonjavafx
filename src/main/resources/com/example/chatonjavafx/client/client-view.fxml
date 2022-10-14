@@ -9,6 +9,7 @@
 
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ListView?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.chatonjavafx.client.ChatController">
     <VBox>
@@ -17,7 +18,8 @@
             <PasswordField fx:id="passField" promptText="password"/>
             <Button text="Sign in" onAction="#signInBtnClick"/>
         </HBox>
-        <VBox fx:id="messageBox" visible="false">
+        <HBox fx:id="messageBox" visible="false">
+            <VBox>
             <TextArea fx:id="messageArea" editable="false" VBox.vgrow="ALWAYS"/>
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
@@ -26,6 +28,11 @@
                 <TextField fx:id="messageField" editable="true" VBox.vgrow="ALWAYS"/>
                 <Button text="Send" defaultButton="true" onAction="#clickSendButton"/>
             </FlowPane>
-        </VBox>
+            </VBox>
+            <VBox>
+                <Button text="Sign out" onAction="#signOutClick"/>
+            <ListView fx:id="clientList" minWidth="200" maxWidth="200" onMouseClicked="#selectClient"/>
+            </VBox>
+        </HBox>
     </VBox>
 </VBox>
